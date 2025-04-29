@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Text Generator</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      padding: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input[type="text"], select {
+      padding: 8px;
+      font-size: 16px;
+      width: 300px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 25px;
+      padding: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dynamic Text Generator</h1>
+  <p>Enter some text and customize its appearance below:</p>
+
+  <label for="textInput">Enter Your Text:</label>
+  <input type="text" id="textInput" value="reshma">
+
+  <label for="fontSize">Font Size:</label>
+  <select id="fontSize">
+    <option value="16px">Small</option>
+    <option value="24px">Medium</option>
+    <option value="36px">Large</option>
+    <option value="48px">Extra Large</option>
+    <option value="60px">Huge</option>
+  </select>
+
+  <label for="textColor">Text Color:</label>
+  <select id="textColor">
+    <option value="black">Black</option>
+    <option value="red" selected>Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="purple">Purple</option>
+  </select>
+
+  <label for="bgColor">Background Color:</label>
+  <select id="bgColor">
+    <option value="white">White</option>
+    <option value="yellow" selected>Yellow</option>
+    <option value="lightgray">Light Gray</option>
+    <option value="lightblue">Light Blue</option>
+    <option value="pink">Pink</option>
+  </select>
+
+  <br>
+  <button onclick="generateText()">Generate</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generateText() {
+      const text = document.getElementById('textInput').value;
+      const fontSize = document.getElementById('fontSize').value;
+      const textColor = document.getElementById('textColor').value;
+      const bgColor = document.getElementById('bgColor').value;
+
+      const outputDiv = document.getElementById('output');
+      outputDiv.textContent = text;
+      outputDiv.style.fontSize = fontSize;
+      outputDiv.style.color = textColor;
+      outputDiv.style.backgroundColor = bgColor;
+    }
+
+    // Auto-generate on load (optional)
+    window.onload = generateText;
+  </script>
+
+</body>
+</html>
